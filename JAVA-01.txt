@@ -1,0 +1,230 @@
+﻿Saanvi Lakhanpal
+12212206
+CS-C(11)
+Java-Assignment(01)
+
+
+
+
+Q1.) import java.util.Scanner;
+
+
+public class DigitMultiplier {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Enter an integer between 0 and 1000: ");
+        int number = scanner.nextInt();
+        
+        if (number < 0 || number > 1000) {
+            System.out.println("Please enter a valid integer between 0 and 1000.");
+        } else {
+            int result = multiplyDigits(number);
+            System.out.println("Multiplication of digits: " + result);
+        }
+        
+    }
+    
+    public static int multiplyDigits(int num) {
+        int product = 1;
+        
+        while (num > 0) {
+            int digit = num % 10;
+            product *= digit;
+            num /= 10;
+        }
+        
+        return product;
+    }
+}
+
+
+Q2.) import java.util.Scanner;
+
+
+public class MinutesToYearsDays {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Enter the number of minutes: ");
+        long minutes = scanner.nextLong();
+        
+        if (minutes < 0) {
+            System.out.println("Please enter a non-negative value of minutes.");
+        } else {
+            long years = minutes / (365 * 24 * 60);
+            long remainingMinutes = minutes % (365 * 24 * 60);
+            long days = remainingMinutes / (24 * 60);
+            
+            System.out.println(minutes + " minutes is approximately:");
+            System.out.println(years + " years and " + days + " days");
+        }
+        
+       
+    }
+}
+
+
+Q3.) import java.util.Scanner;
+
+
+public class BMICalculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Enter weight in pounds: ");
+        double weightPounds = scanner.nextDouble();
+        
+        System.out.print("Enter height in inches: ");
+        double heightInches = scanner.nextDouble();
+        
+        double weightKilograms = weightPounds * 0.45359237;
+        double heightMeters = heightInches * 0.0254;
+        
+        double bmi = weightKilograms / (heightMeters * heightMeters);
+        
+        System.out.println("BMI: " + bmi);
+        
+       
+    }
+}
+
+
+Q4.) import java.util.Scanner;
+
+
+public class InterestCalculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Enter the balance: ");
+        double balance = scanner.nextDouble();
+        
+        System.out.print("Enter the annual interest rate (in percentage): ");
+        double annualInterestRate = scanner.nextDouble();
+        
+        double monthlyInterestRate = annualInterestRate / 1200; // Convert to monthly rate
+        double interest = balance * monthlyInterestRate;
+        
+        System.out.println("Interest for the next month: " + interest);
+        
+
+
+    }
+}
+
+
+ Q5.) import java.util.Scanner;
+
+
+public class MultipleChecker {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Enter the first integer: ");
+        int firstNumber = scanner.nextInt();
+        
+        System.out.print("Enter the second integer: ");
+        int secondNumber = scanner.nextInt();
+        
+        boolean isMultiple = secondNumber != 0 && firstNumber % secondNumber == 0;
+        
+        if (isMultiple) {
+            System.out.println(firstNumber + " is a multiple of " + secondNumber);
+        } else {
+            System.out.println(firstNumber + " is not a multiple of " + secondNumber);
+        }
+        
+    }
+}
+
+
+Q6.)  import java.util.Scanner;
+
+
+public class MoveZerosToEnd {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+
+        System.out.print("Enter the number of elements in the array: ");
+        int n = scanner.nextInt();
+
+
+        int[] arr = new int[n];
+        System.out.println("Enter the elements of the array:");
+        for (int i = 0; i < n; i++) {
+            arr[i] = scanner.nextInt();
+        }
+
+
+        moveZerosToEnd(arr);
+
+
+        System.out.println("Array after moving zeros to the end:");
+        for (int num : arr) {
+            System.out.print(num + " ");
+        }
+
+
+       
+    }
+
+
+    public static void moveZerosToEnd(int[] arr) {
+        int nonZeroIndex = 0;
+
+
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] != 0) {
+                arr [nonZeroIndex] = arr[i];
+                nonZeroIndex++;
+            }
+        }
+        for (int i = nonZeroIndex; i < arr.length; i++) {
+            arr[i] = 0;
+        }
+    }
+}
+ 
+Q7.) import java.util.Scanner;
+
+
+public class ContactList {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+
+        String[] firstNames = new String[25];
+        String[] lastNames = new String[25];
+        int[] mobileNumbers = new int[25];
+        int count = 0;
+
+
+        System.out.println("Enter up to 25 pairs of names and mobile numbers:");
+        while (count < 25 && scanner.hasNextLine()) {
+            String line = scanner.nextLine();
+            String[] parts = line.split("\t");
+
+
+            if (parts.length == 3) {
+                firstNames[count] = parts[0];
+                lastNames[count] = parts[1];
+                mobileNumbers[count] = Integer.parseInt(parts[2]);
+                count++;
+            }
+        }
+
+
+        System.out.println("Contact List:");
+        for (int i = 0; i < count; i++) {
+            System.out.println(firstNames[i] + " " + lastNames[i] + "\t" + mobileNumbers[i]);
+        }
+
+
+       
+    }
+}
+
+
+Q8.)
